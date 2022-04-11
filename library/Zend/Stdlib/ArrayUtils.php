@@ -203,6 +203,10 @@ abstract class ArrayUtils
      */
     public static function iteratorToArray($iterator, $recursive = true)
     {
+        if (is_array($iterator)) {
+            return($iterator);
+        }
+
         if (!is_array($iterator) && !$iterator instanceof Traversable) {
             throw new Exception\InvalidArgumentException(__METHOD__ . ' expects an array or Traversable object');
         }
